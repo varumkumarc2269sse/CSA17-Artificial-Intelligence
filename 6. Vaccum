@@ -1,0 +1,7 @@
+def vacuum(world,pos):
+    for i in range(len(world)):
+        if world[i]=="dirty":
+            print(f"Cleaned at {i}")
+            world[i]="clean"
+    print("Final:",world)
+vacuum(["dirty","clean","dirty"],0)

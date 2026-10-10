@@ -1,0 +1,16 @@
+def valid(m,c): return m>=0 and c>=0 and m<=3 and c<=3 and (m==0 or m>=c)
+def dfs(state,path):
+    mL,cL,boat=state
+    if state==(0,0,0): return path+[state]
+    moves=[(1,0),(2,0),(0,1),(0,2),(1,1)]
+    for dm,dc in moves:
+        if boat:
+            ns=(mL-dm,cL-dc,0)
+        else:
+            ns=(mL+dm,cL+dc,1)
+        mR,cR=3-ns[0],3-ns[1]
+        if valid(ns[0],ns[1]) and valid(mR,cR):
+            if ns not in path:
+                sol=dfs(ns,path+[state])
+                if sol: return sol
+print(dfs((3,3,1),[]))

@@ -1,0 +1,11 @@
+import itertools
+def solve():
+    letters="SENDMORY"
+    for p in itertools.permutations(range(10),8):
+        s,e,n,d,m,o,r,y=p
+        if s and m:
+            send=1000*s+100*e+10*n+d
+            more=1000*m+100*o+10*r+e
+            money=10000*m+1000*o+100*n+10*e+y
+            if send+more==money: return send,more,money
+print(solve())
