@@ -1,0 +1,9 @@
+from collections import deque
+def bfs(graph,start):
+    q=deque([start]); seen={start}
+    while q:
+        v=q.popleft(); print(v,end=" ")
+        for n in graph[v]:
+            if n not in seen: seen.add(n); q.append(n)
+graph={'A':['B','C'],'B':['D'],'C':['E'],'D':[],'E':[]}
+bfs(graph,'A')

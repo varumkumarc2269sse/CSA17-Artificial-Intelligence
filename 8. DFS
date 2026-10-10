@@ -1,0 +1,6 @@
+def dfs(graph,start,seen=set()):
+    if start in seen: return
+    print(start,end=" "); seen.add(start)
+    for n in graph[start]: dfs(graph,n,seen)
+graph={'A':['B','C'],'B':['D'],'C':['E'],'D':[],'E':[]}
+dfs(graph,'A')
